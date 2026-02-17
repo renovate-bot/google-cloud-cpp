@@ -4,6 +4,13 @@
 breaking changes in the upcoming 4.x release. This release is scheduled for
 2027-12 or 2028-01.
 
+## v3.1.0 - 2026-02
+
+### Default Retry Policy Changes
+
+All libraries except Bigtable, PubSub, Spanner, and Storage have had their
+default maximum retry policy duration reduced from 30 minutes to 10 minutes.
+
 ## v3.0.0 - 2026-02
 
 **BREAKING CHANGES**

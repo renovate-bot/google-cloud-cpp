@@ -21,7 +21,7 @@ set(PACKAGE_BUGREPORT "https://github.com/googleapis/google-cloud-cpp/issues")
 
 project(
     google-cloud-cpp
-    VERSION 3.0.0
+    VERSION 3.1.0
     LANGUAGES CXX)
 set(PROJECT_VERSION_PRE_RELEASE "")
 
