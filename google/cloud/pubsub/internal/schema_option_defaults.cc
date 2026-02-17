@@ -45,7 +45,7 @@ Options SchemaServiceDefaultOptions(std::string const& location,
   options = internal::PopulateGrpcOptions(std::move(options));
   if (!options.has<pubsub::SchemaServiceRetryPolicyOption>()) {
     options.set<pubsub::SchemaServiceRetryPolicyOption>(
-        pubsub::SchemaServiceLimitedTimeRetryPolicy(std::chrono::minutes(30))
+        pubsub::SchemaServiceLimitedTimeRetryPolicy(std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<pubsub::SchemaServiceBackoffPolicyOption>()) {

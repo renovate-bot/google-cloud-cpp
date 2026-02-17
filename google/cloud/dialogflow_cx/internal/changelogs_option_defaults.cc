@@ -44,7 +44,7 @@ Options ChangelogsDefaultOptions(std::string const& location, Options options) {
   if (!options.has<dialogflow_cx::ChangelogsRetryPolicyOption>()) {
     options.set<dialogflow_cx::ChangelogsRetryPolicyOption>(
         dialogflow_cx::ChangelogsLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<dialogflow_cx::ChangelogsBackoffPolicyOption>()) {

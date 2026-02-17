@@ -45,7 +45,7 @@ Options BatchControllerDefaultOptions(std::string const& location,
   if (!options.has<dataproc_v1::BatchControllerRetryPolicyOption>()) {
     options.set<dataproc_v1::BatchControllerRetryPolicyOption>(
         dataproc_v1::BatchControllerLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<dataproc_v1::BatchControllerBackoffPolicyOption>()) {

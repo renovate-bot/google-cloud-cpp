@@ -44,7 +44,7 @@ Options GenAiTuningServiceDefaultOptions(std::string const& location,
   if (!options.has<aiplatform_v1::GenAiTuningServiceRetryPolicyOption>()) {
     options.set<aiplatform_v1::GenAiTuningServiceRetryPolicyOption>(
         aiplatform_v1::GenAiTuningServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<aiplatform_v1::GenAiTuningServiceBackoffPolicyOption>()) {

@@ -44,7 +44,7 @@ Options PipelineServiceDefaultOptions(std::string const& location,
   if (!options.has<aiplatform_v1::PipelineServiceRetryPolicyOption>()) {
     options.set<aiplatform_v1::PipelineServiceRetryPolicyOption>(
         aiplatform_v1::PipelineServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<aiplatform_v1::PipelineServiceBackoffPolicyOption>()) {

@@ -46,7 +46,7 @@ Options FeatureOnlineStoreAdminServiceDefaultOptions(
           aiplatform_v1::FeatureOnlineStoreAdminServiceRetryPolicyOption>()) {
     options.set<aiplatform_v1::FeatureOnlineStoreAdminServiceRetryPolicyOption>(
         aiplatform_v1::FeatureOnlineStoreAdminServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<

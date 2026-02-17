@@ -45,7 +45,7 @@ Options TransitionRouteGroupsDefaultOptions(std::string const& location,
   if (!options.has<dialogflow_cx::TransitionRouteGroupsRetryPolicyOption>()) {
     options.set<dialogflow_cx::TransitionRouteGroupsRetryPolicyOption>(
         dialogflow_cx::TransitionRouteGroupsLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<dialogflow_cx::TransitionRouteGroupsBackoffPolicyOption>()) {

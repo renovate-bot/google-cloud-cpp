@@ -44,7 +44,7 @@ Options MetadataServiceDefaultOptions(std::string const& location,
   if (!options.has<aiplatform_v1::MetadataServiceRetryPolicyOption>()) {
     options.set<aiplatform_v1::MetadataServiceRetryPolicyOption>(
         aiplatform_v1::MetadataServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<aiplatform_v1::MetadataServiceBackoffPolicyOption>()) {

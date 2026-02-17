@@ -45,7 +45,7 @@ Options WorkflowTemplateServiceDefaultOptions(std::string const& location,
   if (!options.has<dataproc_v1::WorkflowTemplateServiceRetryPolicyOption>()) {
     options.set<dataproc_v1::WorkflowTemplateServiceRetryPolicyOption>(
         dataproc_v1::WorkflowTemplateServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<dataproc_v1::WorkflowTemplateServiceBackoffPolicyOption>()) {

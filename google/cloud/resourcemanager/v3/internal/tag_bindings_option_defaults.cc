@@ -46,7 +46,7 @@ Options TagBindingsDefaultOptions(std::string const& location,
   if (!options.has<resourcemanager_v3::TagBindingsRetryPolicyOption>()) {
     options.set<resourcemanager_v3::TagBindingsRetryPolicyOption>(
         resourcemanager_v3::TagBindingsLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<resourcemanager_v3::TagBindingsBackoffPolicyOption>()) {

@@ -46,7 +46,7 @@ Options DeploymentResourcePoolServiceDefaultOptions(std::string const& location,
           aiplatform_v1::DeploymentResourcePoolServiceRetryPolicyOption>()) {
     options.set<aiplatform_v1::DeploymentResourcePoolServiceRetryPolicyOption>(
         aiplatform_v1::DeploymentResourcePoolServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<

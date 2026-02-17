@@ -44,7 +44,7 @@ Options TopicAdminDefaultOptions(std::string const& location, Options options) {
   options = internal::PopulateGrpcOptions(std::move(options));
   if (!options.has<pubsub_admin::TopicAdminRetryPolicyOption>()) {
     options.set<pubsub_admin::TopicAdminRetryPolicyOption>(
-        pubsub_admin::TopicAdminLimitedTimeRetryPolicy(std::chrono::minutes(30))
+        pubsub_admin::TopicAdminLimitedTimeRetryPolicy(std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<pubsub_admin::TopicAdminBackoffPolicyOption>()) {

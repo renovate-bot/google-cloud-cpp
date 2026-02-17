@@ -46,7 +46,7 @@ Options SubscriptionAdminDefaultOptions(std::string const& location,
   if (!options.has<pubsub_admin::SubscriptionAdminRetryPolicyOption>()) {
     options.set<pubsub_admin::SubscriptionAdminRetryPolicyOption>(
         pubsub_admin::SubscriptionAdminLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<pubsub_admin::SubscriptionAdminBackoffPolicyOption>()) {

@@ -45,7 +45,7 @@ Options EntityTypesDefaultOptions(std::string const& location,
   if (!options.has<dialogflow_cx::EntityTypesRetryPolicyOption>()) {
     options.set<dialogflow_cx::EntityTypesRetryPolicyOption>(
         dialogflow_cx::EntityTypesLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<dialogflow_cx::EntityTypesBackoffPolicyOption>()) {

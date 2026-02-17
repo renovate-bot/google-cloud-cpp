@@ -44,7 +44,7 @@ Options VizierServiceDefaultOptions(std::string const& location,
   if (!options.has<aiplatform_v1::VizierServiceRetryPolicyOption>()) {
     options.set<aiplatform_v1::VizierServiceRetryPolicyOption>(
         aiplatform_v1::VizierServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<aiplatform_v1::VizierServiceBackoffPolicyOption>()) {

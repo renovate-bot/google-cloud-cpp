@@ -45,7 +45,7 @@ Options ParticipantsDefaultOptions(std::string const& location,
   if (!options.has<dialogflow_es::ParticipantsRetryPolicyOption>()) {
     options.set<dialogflow_es::ParticipantsRetryPolicyOption>(
         dialogflow_es::ParticipantsLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<dialogflow_es::ParticipantsBackoffPolicyOption>()) {

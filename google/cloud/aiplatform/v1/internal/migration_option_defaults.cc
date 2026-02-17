@@ -44,7 +44,7 @@ Options MigrationServiceDefaultOptions(std::string const& location,
   if (!options.has<aiplatform_v1::MigrationServiceRetryPolicyOption>()) {
     options.set<aiplatform_v1::MigrationServiceRetryPolicyOption>(
         aiplatform_v1::MigrationServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<aiplatform_v1::MigrationServiceBackoffPolicyOption>()) {

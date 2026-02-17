@@ -46,7 +46,7 @@ Options PersistentResourceServiceDefaultOptions(std::string const& location,
            .has<aiplatform_v1::PersistentResourceServiceRetryPolicyOption>()) {
     options.set<aiplatform_v1::PersistentResourceServiceRetryPolicyOption>(
         aiplatform_v1::PersistentResourceServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<

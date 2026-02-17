@@ -46,7 +46,7 @@ Options OrganizationsDefaultOptions(std::string const& location,
   if (!options.has<resourcemanager_v3::OrganizationsRetryPolicyOption>()) {
     options.set<resourcemanager_v3::OrganizationsRetryPolicyOption>(
         resourcemanager_v3::OrganizationsLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<resourcemanager_v3::OrganizationsBackoffPolicyOption>()) {

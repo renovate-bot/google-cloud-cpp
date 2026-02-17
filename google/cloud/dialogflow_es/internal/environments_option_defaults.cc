@@ -45,7 +45,7 @@ Options EnvironmentsDefaultOptions(std::string const& location,
   if (!options.has<dialogflow_es::EnvironmentsRetryPolicyOption>()) {
     options.set<dialogflow_es::EnvironmentsRetryPolicyOption>(
         dialogflow_es::EnvironmentsLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<dialogflow_es::EnvironmentsBackoffPolicyOption>()) {

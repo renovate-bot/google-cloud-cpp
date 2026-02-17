@@ -45,7 +45,7 @@ Options FoldersDefaultOptions(std::string const& location, Options options) {
   if (!options.has<resourcemanager_v3::FoldersRetryPolicyOption>()) {
     options.set<resourcemanager_v3::FoldersRetryPolicyOption>(
         resourcemanager_v3::FoldersLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<resourcemanager_v3::FoldersBackoffPolicyOption>()) {

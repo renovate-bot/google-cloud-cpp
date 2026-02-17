@@ -43,7 +43,7 @@ Options IntentsDefaultOptions(std::string const& location, Options options) {
   options = internal::PopulateGrpcOptions(std::move(options));
   if (!options.has<dialogflow_cx::IntentsRetryPolicyOption>()) {
     options.set<dialogflow_cx::IntentsRetryPolicyOption>(
-        dialogflow_cx::IntentsLimitedTimeRetryPolicy(std::chrono::minutes(30))
+        dialogflow_cx::IntentsLimitedTimeRetryPolicy(std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<dialogflow_cx::IntentsBackoffPolicyOption>()) {

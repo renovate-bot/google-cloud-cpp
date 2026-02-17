@@ -46,7 +46,7 @@ Options FeatureOnlineStoreServiceDefaultOptions(std::string const& location,
            .has<aiplatform_v1::FeatureOnlineStoreServiceRetryPolicyOption>()) {
     options.set<aiplatform_v1::FeatureOnlineStoreServiceRetryPolicyOption>(
         aiplatform_v1::FeatureOnlineStoreServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<

@@ -44,7 +44,7 @@ Options NodeGroupControllerDefaultOptions(std::string const& location,
   if (!options.has<dataproc_v1::NodeGroupControllerRetryPolicyOption>()) {
     options.set<dataproc_v1::NodeGroupControllerRetryPolicyOption>(
         dataproc_v1::NodeGroupControllerLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<dataproc_v1::NodeGroupControllerBackoffPolicyOption>()) {

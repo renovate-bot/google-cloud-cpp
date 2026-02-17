@@ -44,7 +44,7 @@ Options GeneratorsDefaultOptions(std::string const& location, Options options) {
   if (!options.has<dialogflow_es::GeneratorsRetryPolicyOption>()) {
     options.set<dialogflow_es::GeneratorsRetryPolicyOption>(
         dialogflow_es::GeneratorsLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<dialogflow_es::GeneratorsBackoffPolicyOption>()) {

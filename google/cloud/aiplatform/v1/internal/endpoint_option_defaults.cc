@@ -44,7 +44,7 @@ Options EndpointServiceDefaultOptions(std::string const& location,
   if (!options.has<aiplatform_v1::EndpointServiceRetryPolicyOption>()) {
     options.set<aiplatform_v1::EndpointServiceRetryPolicyOption>(
         aiplatform_v1::EndpointServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<aiplatform_v1::EndpointServiceBackoffPolicyOption>()) {

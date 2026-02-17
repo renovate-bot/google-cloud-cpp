@@ -43,7 +43,7 @@ Options TestCasesDefaultOptions(std::string const& location, Options options) {
   options = internal::PopulateGrpcOptions(std::move(options));
   if (!options.has<dialogflow_cx::TestCasesRetryPolicyOption>()) {
     options.set<dialogflow_cx::TestCasesRetryPolicyOption>(
-        dialogflow_cx::TestCasesLimitedTimeRetryPolicy(std::chrono::minutes(30))
+        dialogflow_cx::TestCasesLimitedTimeRetryPolicy(std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<dialogflow_cx::TestCasesBackoffPolicyOption>()) {

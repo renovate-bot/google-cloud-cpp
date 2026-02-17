@@ -44,7 +44,7 @@ Options TensorboardServiceDefaultOptions(std::string const& location,
   if (!options.has<aiplatform_v1::TensorboardServiceRetryPolicyOption>()) {
     options.set<aiplatform_v1::TensorboardServiceRetryPolicyOption>(
         aiplatform_v1::TensorboardServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<aiplatform_v1::TensorboardServiceBackoffPolicyOption>()) {

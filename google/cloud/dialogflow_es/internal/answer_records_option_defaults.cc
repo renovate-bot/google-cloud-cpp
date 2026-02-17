@@ -45,7 +45,7 @@ Options AnswerRecordsDefaultOptions(std::string const& location,
   if (!options.has<dialogflow_es::AnswerRecordsRetryPolicyOption>()) {
     options.set<dialogflow_es::AnswerRecordsRetryPolicyOption>(
         dialogflow_es::AnswerRecordsLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<dialogflow_es::AnswerRecordsBackoffPolicyOption>()) {

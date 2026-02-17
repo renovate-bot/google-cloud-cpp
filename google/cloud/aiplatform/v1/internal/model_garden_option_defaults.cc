@@ -44,7 +44,7 @@ Options ModelGardenServiceDefaultOptions(std::string const& location,
   if (!options.has<aiplatform_v1::ModelGardenServiceRetryPolicyOption>()) {
     options.set<aiplatform_v1::ModelGardenServiceRetryPolicyOption>(
         aiplatform_v1::ModelGardenServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<aiplatform_v1::ModelGardenServiceBackoffPolicyOption>()) {

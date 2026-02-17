@@ -45,7 +45,7 @@ Options FulfillmentsDefaultOptions(std::string const& location,
   if (!options.has<dialogflow_es::FulfillmentsRetryPolicyOption>()) {
     options.set<dialogflow_es::FulfillmentsRetryPolicyOption>(
         dialogflow_es::FulfillmentsLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<dialogflow_es::FulfillmentsBackoffPolicyOption>()) {

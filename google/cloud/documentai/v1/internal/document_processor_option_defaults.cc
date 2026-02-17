@@ -47,7 +47,7 @@ Options DocumentProcessorServiceDefaultOptions(std::string const& location,
            .has<documentai_v1::DocumentProcessorServiceRetryPolicyOption>()) {
     options.set<documentai_v1::DocumentProcessorServiceRetryPolicyOption>(
         documentai_v1::DocumentProcessorServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options

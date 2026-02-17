@@ -46,7 +46,7 @@ Options AutoscalingPolicyServiceDefaultOptions(std::string const& location,
   if (!options.has<dataproc_v1::AutoscalingPolicyServiceRetryPolicyOption>()) {
     options.set<dataproc_v1::AutoscalingPolicyServiceRetryPolicyOption>(
         dataproc_v1::AutoscalingPolicyServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options

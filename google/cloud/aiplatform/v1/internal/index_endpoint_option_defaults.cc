@@ -44,7 +44,7 @@ Options IndexEndpointServiceDefaultOptions(std::string const& location,
   if (!options.has<aiplatform_v1::IndexEndpointServiceRetryPolicyOption>()) {
     options.set<aiplatform_v1::IndexEndpointServiceRetryPolicyOption>(
         aiplatform_v1::IndexEndpointServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<aiplatform_v1::IndexEndpointServiceBackoffPolicyOption>()) {

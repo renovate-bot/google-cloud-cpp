@@ -45,7 +45,7 @@ Options ConversationDatasetsDefaultOptions(std::string const& location,
   if (!options.has<dialogflow_es::ConversationDatasetsRetryPolicyOption>()) {
     options.set<dialogflow_es::ConversationDatasetsRetryPolicyOption>(
         dialogflow_es::ConversationDatasetsLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<dialogflow_es::ConversationDatasetsBackoffPolicyOption>()) {

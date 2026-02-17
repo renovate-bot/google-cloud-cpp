@@ -43,7 +43,7 @@ Options JobServiceDefaultOptions(std::string const& location, Options options) {
   if (!options.has<aiplatform_v1::JobServiceRetryPolicyOption>()) {
     options.set<aiplatform_v1::JobServiceRetryPolicyOption>(
         aiplatform_v1::JobServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<aiplatform_v1::JobServiceBackoffPolicyOption>()) {

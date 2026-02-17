@@ -45,7 +45,7 @@ Options ClusterControllerDefaultOptions(std::string const& location,
   if (!options.has<dataproc_v1::ClusterControllerRetryPolicyOption>()) {
     options.set<dataproc_v1::ClusterControllerRetryPolicyOption>(
         dataproc_v1::ClusterControllerLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<dataproc_v1::ClusterControllerBackoffPolicyOption>()) {

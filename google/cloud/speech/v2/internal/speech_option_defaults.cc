@@ -43,7 +43,7 @@ Options SpeechDefaultOptions(std::string const& location, Options options) {
   options = internal::PopulateGrpcOptions(std::move(options));
   if (!options.has<speech_v2::SpeechRetryPolicyOption>()) {
     options.set<speech_v2::SpeechRetryPolicyOption>(
-        speech_v2::SpeechLimitedTimeRetryPolicy(std::chrono::minutes(30))
+        speech_v2::SpeechLimitedTimeRetryPolicy(std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<speech_v2::SpeechBackoffPolicyOption>()) {

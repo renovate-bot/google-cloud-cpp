@@ -44,7 +44,7 @@ Options EvaluationServiceDefaultOptions(std::string const& location,
   if (!options.has<aiplatform_v1::EvaluationServiceRetryPolicyOption>()) {
     options.set<aiplatform_v1::EvaluationServiceRetryPolicyOption>(
         aiplatform_v1::EvaluationServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<aiplatform_v1::EvaluationServiceBackoffPolicyOption>()) {

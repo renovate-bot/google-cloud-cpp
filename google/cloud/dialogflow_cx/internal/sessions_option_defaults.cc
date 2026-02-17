@@ -43,7 +43,7 @@ Options SessionsDefaultOptions(std::string const& location, Options options) {
   options = internal::PopulateGrpcOptions(std::move(options));
   if (!options.has<dialogflow_cx::SessionsRetryPolicyOption>()) {
     options.set<dialogflow_cx::SessionsRetryPolicyOption>(
-        dialogflow_cx::SessionsLimitedTimeRetryPolicy(std::chrono::minutes(30))
+        dialogflow_cx::SessionsLimitedTimeRetryPolicy(std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<dialogflow_cx::SessionsBackoffPolicyOption>()) {

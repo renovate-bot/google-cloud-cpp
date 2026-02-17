@@ -44,7 +44,7 @@ Options DatasetServiceDefaultOptions(std::string const& location,
   if (!options.has<aiplatform_v1::DatasetServiceRetryPolicyOption>()) {
     options.set<aiplatform_v1::DatasetServiceRetryPolicyOption>(
         aiplatform_v1::DatasetServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<aiplatform_v1::DatasetServiceBackoffPolicyOption>()) {

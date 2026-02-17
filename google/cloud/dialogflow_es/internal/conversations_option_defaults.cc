@@ -45,7 +45,7 @@ Options ConversationsDefaultOptions(std::string const& location,
   if (!options.has<dialogflow_es::ConversationsRetryPolicyOption>()) {
     options.set<dialogflow_es::ConversationsRetryPolicyOption>(
         dialogflow_es::ConversationsLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<dialogflow_es::ConversationsBackoffPolicyOption>()) {

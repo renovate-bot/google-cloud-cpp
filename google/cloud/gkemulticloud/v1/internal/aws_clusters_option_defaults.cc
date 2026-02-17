@@ -44,7 +44,7 @@ Options AwsClustersDefaultOptions(std::string const& location,
   if (!options.has<gkemulticloud_v1::AwsClustersRetryPolicyOption>()) {
     options.set<gkemulticloud_v1::AwsClustersRetryPolicyOption>(
         gkemulticloud_v1::AwsClustersLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<gkemulticloud_v1::AwsClustersBackoffPolicyOption>()) {

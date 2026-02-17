@@ -44,7 +44,7 @@ Options LlmUtilityServiceDefaultOptions(std::string const& location,
   if (!options.has<aiplatform_v1::LlmUtilityServiceRetryPolicyOption>()) {
     options.set<aiplatform_v1::LlmUtilityServiceRetryPolicyOption>(
         aiplatform_v1::LlmUtilityServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<aiplatform_v1::LlmUtilityServiceBackoffPolicyOption>()) {

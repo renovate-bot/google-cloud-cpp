@@ -44,7 +44,7 @@ Options MatchServiceDefaultOptions(std::string const& location,
   if (!options.has<aiplatform_v1::MatchServiceRetryPolicyOption>()) {
     options.set<aiplatform_v1::MatchServiceRetryPolicyOption>(
         aiplatform_v1::MatchServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<aiplatform_v1::MatchServiceBackoffPolicyOption>()) {

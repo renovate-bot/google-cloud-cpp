@@ -45,7 +45,7 @@ Options SessionTemplateControllerDefaultOptions(std::string const& location,
   if (!options.has<dataproc_v1::SessionTemplateControllerRetryPolicyOption>()) {
     options.set<dataproc_v1::SessionTemplateControllerRetryPolicyOption>(
         dataproc_v1::SessionTemplateControllerLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options

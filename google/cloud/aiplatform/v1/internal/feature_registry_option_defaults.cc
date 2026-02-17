@@ -44,7 +44,7 @@ Options FeatureRegistryServiceDefaultOptions(std::string const& location,
   if (!options.has<aiplatform_v1::FeatureRegistryServiceRetryPolicyOption>()) {
     options.set<aiplatform_v1::FeatureRegistryServiceRetryPolicyOption>(
         aiplatform_v1::FeatureRegistryServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options

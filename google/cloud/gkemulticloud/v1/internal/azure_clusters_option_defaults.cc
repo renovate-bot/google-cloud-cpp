@@ -44,7 +44,7 @@ Options AzureClustersDefaultOptions(std::string const& location,
   if (!options.has<gkemulticloud_v1::AzureClustersRetryPolicyOption>()) {
     options.set<gkemulticloud_v1::AzureClustersRetryPolicyOption>(
         gkemulticloud_v1::AzureClustersLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<gkemulticloud_v1::AzureClustersBackoffPolicyOption>()) {

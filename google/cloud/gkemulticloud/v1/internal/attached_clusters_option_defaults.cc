@@ -44,7 +44,7 @@ Options AttachedClustersDefaultOptions(std::string const& location,
   if (!options.has<gkemulticloud_v1::AttachedClustersRetryPolicyOption>()) {
     options.set<gkemulticloud_v1::AttachedClustersRetryPolicyOption>(
         gkemulticloud_v1::AttachedClustersLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<gkemulticloud_v1::AttachedClustersBackoffPolicyOption>()) {

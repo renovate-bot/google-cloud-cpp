@@ -45,7 +45,7 @@ Options JobControllerDefaultOptions(std::string const& location,
   if (!options.has<dataproc_v1::JobControllerRetryPolicyOption>()) {
     options.set<dataproc_v1::JobControllerRetryPolicyOption>(
         dataproc_v1::JobControllerLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<dataproc_v1::JobControllerBackoffPolicyOption>()) {

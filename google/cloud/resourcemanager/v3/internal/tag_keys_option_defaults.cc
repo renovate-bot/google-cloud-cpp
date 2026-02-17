@@ -45,7 +45,7 @@ Options TagKeysDefaultOptions(std::string const& location, Options options) {
   if (!options.has<resourcemanager_v3::TagKeysRetryPolicyOption>()) {
     options.set<resourcemanager_v3::TagKeysRetryPolicyOption>(
         resourcemanager_v3::TagKeysLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<resourcemanager_v3::TagKeysBackoffPolicyOption>()) {

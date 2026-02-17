@@ -43,7 +43,7 @@ Options VersionsDefaultOptions(std::string const& location, Options options) {
   options = internal::PopulateGrpcOptions(std::move(options));
   if (!options.has<dialogflow_cx::VersionsRetryPolicyOption>()) {
     options.set<dialogflow_cx::VersionsRetryPolicyOption>(
-        dialogflow_cx::VersionsLimitedTimeRetryPolicy(std::chrono::minutes(30))
+        dialogflow_cx::VersionsLimitedTimeRetryPolicy(std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<dialogflow_cx::VersionsBackoffPolicyOption>()) {

@@ -44,7 +44,7 @@ Options PredictionServiceDefaultOptions(std::string const& location,
   if (!options.has<aiplatform_v1::PredictionServiceRetryPolicyOption>()) {
     options.set<aiplatform_v1::PredictionServiceRetryPolicyOption>(
         aiplatform_v1::PredictionServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<aiplatform_v1::PredictionServiceBackoffPolicyOption>()) {

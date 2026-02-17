@@ -45,7 +45,7 @@ Options SessionEntityTypesDefaultOptions(std::string const& location,
   if (!options.has<dialogflow_es::SessionEntityTypesRetryPolicyOption>()) {
     options.set<dialogflow_es::SessionEntityTypesRetryPolicyOption>(
         dialogflow_es::SessionEntityTypesLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<dialogflow_es::SessionEntityTypesBackoffPolicyOption>()) {

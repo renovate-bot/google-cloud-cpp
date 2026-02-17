@@ -44,7 +44,7 @@ Options SpecialistPoolServiceDefaultOptions(std::string const& location,
   if (!options.has<aiplatform_v1::SpecialistPoolServiceRetryPolicyOption>()) {
     options.set<aiplatform_v1::SpecialistPoolServiceRetryPolicyOption>(
         aiplatform_v1::SpecialistPoolServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<aiplatform_v1::SpecialistPoolServiceBackoffPolicyOption>()) {

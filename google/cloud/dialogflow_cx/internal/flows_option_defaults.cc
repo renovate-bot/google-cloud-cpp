@@ -43,7 +43,7 @@ Options FlowsDefaultOptions(std::string const& location, Options options) {
   options = internal::PopulateGrpcOptions(std::move(options));
   if (!options.has<dialogflow_cx::FlowsRetryPolicyOption>()) {
     options.set<dialogflow_cx::FlowsRetryPolicyOption>(
-        dialogflow_cx::FlowsLimitedTimeRetryPolicy(std::chrono::minutes(30))
+        dialogflow_cx::FlowsLimitedTimeRetryPolicy(std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<dialogflow_cx::FlowsBackoffPolicyOption>()) {

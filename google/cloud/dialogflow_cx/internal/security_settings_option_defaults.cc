@@ -45,7 +45,7 @@ Options SecuritySettingsServiceDefaultOptions(std::string const& location,
   if (!options.has<dialogflow_cx::SecuritySettingsServiceRetryPolicyOption>()) {
     options.set<dialogflow_cx::SecuritySettingsServiceRetryPolicyOption>(
         dialogflow_cx::SecuritySettingsServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options

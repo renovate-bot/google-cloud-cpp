@@ -44,7 +44,7 @@ Options ModelServiceDefaultOptions(std::string const& location,
   if (!options.has<aiplatform_v1::ModelServiceRetryPolicyOption>()) {
     options.set<aiplatform_v1::ModelServiceRetryPolicyOption>(
         aiplatform_v1::ModelServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<aiplatform_v1::ModelServiceBackoffPolicyOption>()) {

@@ -44,7 +44,7 @@ Options ScheduleServiceDefaultOptions(std::string const& location,
   if (!options.has<aiplatform_v1::ScheduleServiceRetryPolicyOption>()) {
     options.set<aiplatform_v1::ScheduleServiceRetryPolicyOption>(
         aiplatform_v1::ScheduleServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<aiplatform_v1::ScheduleServiceBackoffPolicyOption>()) {

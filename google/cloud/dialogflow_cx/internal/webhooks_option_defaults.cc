@@ -43,7 +43,7 @@ Options WebhooksDefaultOptions(std::string const& location, Options options) {
   options = internal::PopulateGrpcOptions(std::move(options));
   if (!options.has<dialogflow_cx::WebhooksRetryPolicyOption>()) {
     options.set<dialogflow_cx::WebhooksRetryPolicyOption>(
-        dialogflow_cx::WebhooksLimitedTimeRetryPolicy(std::chrono::minutes(30))
+        dialogflow_cx::WebhooksLimitedTimeRetryPolicy(std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<dialogflow_cx::WebhooksBackoffPolicyOption>()) {

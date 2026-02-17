@@ -45,7 +45,7 @@ Options ProjectsDefaultOptions(std::string const& location, Options options) {
   if (!options.has<resourcemanager_v3::ProjectsRetryPolicyOption>()) {
     options.set<resourcemanager_v3::ProjectsRetryPolicyOption>(
         resourcemanager_v3::ProjectsLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<resourcemanager_v3::ProjectsBackoffPolicyOption>()) {

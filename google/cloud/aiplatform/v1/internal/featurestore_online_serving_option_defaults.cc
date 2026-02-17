@@ -47,7 +47,7 @@ Options FeaturestoreOnlineServingServiceDefaultOptions(
     options.set<
         aiplatform_v1::FeaturestoreOnlineServingServiceRetryPolicyOption>(
         aiplatform_v1::FeaturestoreOnlineServingServiceLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<aiplatform_v1::

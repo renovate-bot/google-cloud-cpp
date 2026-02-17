@@ -45,7 +45,7 @@ Options DeploymentsDefaultOptions(std::string const& location,
   if (!options.has<dialogflow_cx::DeploymentsRetryPolicyOption>()) {
     options.set<dialogflow_cx::DeploymentsRetryPolicyOption>(
         dialogflow_cx::DeploymentsLimitedTimeRetryPolicy(
-            std::chrono::minutes(30))
+            std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<dialogflow_cx::DeploymentsBackoffPolicyOption>()) {

@@ -44,7 +44,7 @@ Options GoldenRestOnlyDefaultOptions(std::string const& location, Options option
   if (!options.has<golden_v1::GoldenRestOnlyRetryPolicyOption>()) {
     options.set<golden_v1::GoldenRestOnlyRetryPolicyOption>(
         golden_v1::GoldenRestOnlyLimitedTimeRetryPolicy(
-            std::chrono::minutes(30)).clone());
+            std::chrono::minutes(10)).clone());
   }
   if (!options.has<golden_v1::GoldenRestOnlyBackoffPolicyOption>()) {
     options.set<golden_v1::GoldenRestOnlyBackoffPolicyOption>(

@@ -43,7 +43,7 @@ Options ContextsDefaultOptions(std::string const& location, Options options) {
   options = internal::PopulateGrpcOptions(std::move(options));
   if (!options.has<dialogflow_es::ContextsRetryPolicyOption>()) {
     options.set<dialogflow_es::ContextsRetryPolicyOption>(
-        dialogflow_es::ContextsLimitedTimeRetryPolicy(std::chrono::minutes(30))
+        dialogflow_es::ContextsLimitedTimeRetryPolicy(std::chrono::minutes(10))
             .clone());
   }
   if (!options.has<dialogflow_es::ContextsBackoffPolicyOption>()) {
