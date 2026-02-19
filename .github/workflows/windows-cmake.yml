@@ -299,7 +299,8 @@ jobs:
       run: |
         cd "${TEMP}"
         mkdir -p .build/vcpkg
-        curl -fsSL "https://github.com/microsoft/vcpkg/archive/${STEPS_DYNAMIC_OUTPUTS_VCPKG_VERSION}.tar.gz" | tar -C .build/vcpkg --strip-components=1 -zxf -
+        curl -fsSL "https://github.com/microsoft/vcpkg/archive/${STEPS_DYNAMIC_OUTPUTS_VCPKG_VERSION}.tar.gz" |
+            tar -C .build/vcpkg --strip-components=1 -zxf -
         .build/vcpkg/bootstrap-vcpkg.sh -disableMetrics
       env:
         STEPS_DYNAMIC_OUTPUTS_VCPKG_VERSION: ${{ steps.dynamic.outputs.vcpkg-version }}
