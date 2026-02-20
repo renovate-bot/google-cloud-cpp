@@ -38,7 +38,7 @@ function cleanup() {
   io::log_h2 "cleanup on EXIT with exit_status=${exit_status}"
   if ((exit_status != 0)); then
     io::run find . -name 'core'
-    gdb --exec="${quickstart_program}" --core=./core --eval-command="bt full"
+    io::run gdb --exec="${quickstart_program}" --core=./core --eval-command="thread apply all bt"
   fi
 }
 
