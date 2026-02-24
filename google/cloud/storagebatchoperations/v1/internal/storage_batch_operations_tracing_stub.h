@@ -72,6 +72,17 @@ class StorageBatchOperationsTracingStub : public StorageBatchOperationsStub {
             google::cloud::storagebatchoperations::v1::CancelJobRequest const&
                 request) override;
 
+  StatusOr<
+      google::cloud::storagebatchoperations::v1::ListBucketOperationsResponse>
+  ListBucketOperations(grpc::ClientContext& context, Options const& options,
+                       google::cloud::storagebatchoperations::v1::
+                           ListBucketOperationsRequest const& request) override;
+
+  StatusOr<google::cloud::storagebatchoperations::v1::BucketOperation>
+  GetBucketOperation(grpc::ClientContext& context, Options const& options,
+                     google::cloud::storagebatchoperations::v1::
+                         GetBucketOperationRequest const& request) override;
+
   StatusOr<google::cloud::location::ListLocationsResponse> ListLocations(
       grpc::ClientContext& context, Options const& options,
       google::cloud::location::ListLocationsRequest const& request) override;

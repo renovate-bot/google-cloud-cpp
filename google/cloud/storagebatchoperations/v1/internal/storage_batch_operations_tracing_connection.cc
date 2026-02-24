@@ -104,6 +104,31 @@ StorageBatchOperationsTracingConnection::CancelJob(
   return internal::EndSpan(*span, child_->CancelJob(request));
 }
 
+StreamRange<google::cloud::storagebatchoperations::v1::BucketOperation>
+StorageBatchOperationsTracingConnection::ListBucketOperations(
+    google::cloud::storagebatchoperations::v1::ListBucketOperationsRequest
+        request) {
+  auto span = internal::MakeSpan(
+      "storagebatchoperations_v1::StorageBatchOperationsConnection::"
+      "ListBucketOperations");
+  internal::OTelScope scope(span);
+  auto sr = child_->ListBucketOperations(std::move(request));
+  return internal::MakeTracedStreamRange<
+      google::cloud::storagebatchoperations::v1::BucketOperation>(
+      std::move(span), std::move(sr));
+}
+
+StatusOr<google::cloud::storagebatchoperations::v1::BucketOperation>
+StorageBatchOperationsTracingConnection::GetBucketOperation(
+    google::cloud::storagebatchoperations::v1::GetBucketOperationRequest const&
+        request) {
+  auto span = internal::MakeSpan(
+      "storagebatchoperations_v1::StorageBatchOperationsConnection::"
+      "GetBucketOperation");
+  auto scope = opentelemetry::trace::Scope(span);
+  return internal::EndSpan(*span, child_->GetBucketOperation(request));
+}
+
 StreamRange<google::cloud::location::Location>
 StorageBatchOperationsTracingConnection::ListLocations(
     google::cloud::location::ListLocationsRequest request) {

@@ -520,6 +520,30 @@ DeveloperConnectTracingStub::DeleteSelf(
                            child_->DeleteSelf(context, options, request));
 }
 
+StatusOr<google::cloud::developerconnect::v1::StartOAuthResponse>
+DeveloperConnectTracingStub::StartOAuth(
+    grpc::ClientContext& context, Options const& options,
+    google::cloud::developerconnect::v1::StartOAuthRequest const& request) {
+  auto span = internal::MakeSpanGrpc(
+      "google.cloud.developerconnect.v1.DeveloperConnect", "StartOAuth");
+  auto scope = opentelemetry::trace::Scope(span);
+  internal::InjectTraceContext(context, *propagator_);
+  return internal::EndSpan(context, *span,
+                           child_->StartOAuth(context, options, request));
+}
+
+StatusOr<google::cloud::developerconnect::v1::FinishOAuthResponse>
+DeveloperConnectTracingStub::FinishOAuth(
+    grpc::ClientContext& context, Options const& options,
+    google::cloud::developerconnect::v1::FinishOAuthRequest const& request) {
+  auto span = internal::MakeSpanGrpc(
+      "google.cloud.developerconnect.v1.DeveloperConnect", "FinishOAuth");
+  auto scope = opentelemetry::trace::Scope(span);
+  internal::InjectTraceContext(context, *propagator_);
+  return internal::EndSpan(context, *span,
+                           child_->FinishOAuth(context, options, request));
+}
+
 StatusOr<google::cloud::location::ListLocationsResponse>
 DeveloperConnectTracingStub::ListLocations(
     grpc::ClientContext& context, Options const& options,

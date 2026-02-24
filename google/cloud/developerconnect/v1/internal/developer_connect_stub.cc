@@ -548,6 +548,30 @@ DefaultDeveloperConnectStub::DeleteSelf(
   return response;
 }
 
+StatusOr<google::cloud::developerconnect::v1::StartOAuthResponse>
+DefaultDeveloperConnectStub::StartOAuth(
+    grpc::ClientContext& context, Options const&,
+    google::cloud::developerconnect::v1::StartOAuthRequest const& request) {
+  google::cloud::developerconnect::v1::StartOAuthResponse response;
+  auto status = grpc_stub_->StartOAuth(&context, request, &response);
+  if (!status.ok()) {
+    return google::cloud::MakeStatusFromRpcError(status);
+  }
+  return response;
+}
+
+StatusOr<google::cloud::developerconnect::v1::FinishOAuthResponse>
+DefaultDeveloperConnectStub::FinishOAuth(
+    grpc::ClientContext& context, Options const&,
+    google::cloud::developerconnect::v1::FinishOAuthRequest const& request) {
+  google::cloud::developerconnect::v1::FinishOAuthResponse response;
+  auto status = grpc_stub_->FinishOAuth(&context, request, &response);
+  if (!status.ok()) {
+    return google::cloud::MakeStatusFromRpcError(status);
+  }
+  return response;
+}
+
 StatusOr<google::cloud::location::ListLocationsResponse>
 DefaultDeveloperConnectStub::ListLocations(
     grpc::ClientContext& context, Options const&,

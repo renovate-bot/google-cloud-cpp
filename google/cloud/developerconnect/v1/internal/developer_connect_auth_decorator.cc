@@ -471,6 +471,24 @@ StatusOr<google::longrunning::Operation> DeveloperConnectAuth::DeleteSelf(
   return child_->DeleteSelf(context, options, request);
 }
 
+StatusOr<google::cloud::developerconnect::v1::StartOAuthResponse>
+DeveloperConnectAuth::StartOAuth(
+    grpc::ClientContext& context, Options const& options,
+    google::cloud::developerconnect::v1::StartOAuthRequest const& request) {
+  auto status = auth_->ConfigureContext(context);
+  if (!status.ok()) return status;
+  return child_->StartOAuth(context, options, request);
+}
+
+StatusOr<google::cloud::developerconnect::v1::FinishOAuthResponse>
+DeveloperConnectAuth::FinishOAuth(
+    grpc::ClientContext& context, Options const& options,
+    google::cloud::developerconnect::v1::FinishOAuthRequest const& request) {
+  auto status = auth_->ConfigureContext(context);
+  if (!status.ok()) return status;
+  return child_->FinishOAuth(context, options, request);
+}
+
 StatusOr<google::cloud::location::ListLocationsResponse>
 DeveloperConnectAuth::ListLocations(
     grpc::ClientContext& context, Options const& options,

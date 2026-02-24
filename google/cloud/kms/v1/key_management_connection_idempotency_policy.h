@@ -52,6 +52,9 @@ class KeyManagementServiceConnectionIdempotencyPolicy {
   virtual google::cloud::Idempotency ListImportJobs(
       google::cloud::kms::v1::ListImportJobsRequest request);
 
+  virtual google::cloud::Idempotency ListRetiredResources(
+      google::cloud::kms::v1::ListRetiredResourcesRequest request);
+
   virtual google::cloud::Idempotency GetKeyRing(
       google::cloud::kms::v1::GetKeyRingRequest const& request);
 
@@ -67,6 +70,9 @@ class KeyManagementServiceConnectionIdempotencyPolicy {
   virtual google::cloud::Idempotency GetImportJob(
       google::cloud::kms::v1::GetImportJobRequest const& request);
 
+  virtual google::cloud::Idempotency GetRetiredResource(
+      google::cloud::kms::v1::GetRetiredResourceRequest const& request);
+
   virtual google::cloud::Idempotency CreateKeyRing(
       google::cloud::kms::v1::CreateKeyRingRequest const& request);
 
@@ -75,6 +81,12 @@ class KeyManagementServiceConnectionIdempotencyPolicy {
 
   virtual google::cloud::Idempotency CreateCryptoKeyVersion(
       google::cloud::kms::v1::CreateCryptoKeyVersionRequest const& request);
+
+  virtual google::cloud::Idempotency DeleteCryptoKey(
+      google::cloud::kms::v1::DeleteCryptoKeyRequest const& request);
+
+  virtual google::cloud::Idempotency DeleteCryptoKeyVersion(
+      google::cloud::kms::v1::DeleteCryptoKeyVersionRequest const& request);
 
   virtual google::cloud::Idempotency ImportCryptoKeyVersion(
       google::cloud::kms::v1::ImportCryptoKeyVersionRequest const& request);

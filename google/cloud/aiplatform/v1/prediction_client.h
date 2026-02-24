@@ -802,8 +802,8 @@ class PredictionServiceClient {
   /// [`future`]: @ref google::cloud::future
   /// [`StatusOr`]: @ref google::cloud::StatusOr
   /// [`Status`]: @ref google::cloud::Status
-  /// [google.cloud.aiplatform.v1.EmbedContentRequest]: @googleapis_reference_link{google/cloud/aiplatform/v1/prediction_service.proto#L866}
-  /// [google.cloud.aiplatform.v1.EmbedContentResponse]: @googleapis_reference_link{google/cloud/aiplatform/v1/prediction_service.proto#L926}
+  /// [google.cloud.aiplatform.v1.EmbedContentRequest]: @googleapis_reference_link{google/cloud/aiplatform/v1/prediction_service.proto#L894}
+  /// [google.cloud.aiplatform.v1.EmbedContentResponse]: @googleapis_reference_link{google/cloud/aiplatform/v1/prediction_service.proto#L954}
   ///
   // clang-format on
   StatusOr<google::cloud::aiplatform::v1::EmbedContentResponse> EmbedContent(
@@ -833,8 +833,8 @@ class PredictionServiceClient {
   /// [`future`]: @ref google::cloud::future
   /// [`StatusOr`]: @ref google::cloud::StatusOr
   /// [`Status`]: @ref google::cloud::Status
-  /// [google.cloud.aiplatform.v1.EmbedContentRequest]: @googleapis_reference_link{google/cloud/aiplatform/v1/prediction_service.proto#L866}
-  /// [google.cloud.aiplatform.v1.EmbedContentResponse]: @googleapis_reference_link{google/cloud/aiplatform/v1/prediction_service.proto#L926}
+  /// [google.cloud.aiplatform.v1.EmbedContentRequest]: @googleapis_reference_link{google/cloud/aiplatform/v1/prediction_service.proto#L894}
+  /// [google.cloud.aiplatform.v1.EmbedContentResponse]: @googleapis_reference_link{google/cloud/aiplatform/v1/prediction_service.proto#L954}
   ///
   // clang-format on
   StatusOr<google::cloud::aiplatform::v1::EmbedContentResponse> EmbedContent(

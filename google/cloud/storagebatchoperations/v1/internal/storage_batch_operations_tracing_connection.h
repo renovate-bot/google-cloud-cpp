@@ -68,6 +68,15 @@ class StorageBatchOperationsTracingConnection
   CancelJob(google::cloud::storagebatchoperations::v1::CancelJobRequest const&
                 request) override;
 
+  StreamRange<google::cloud::storagebatchoperations::v1::BucketOperation>
+  ListBucketOperations(
+      google::cloud::storagebatchoperations::v1::ListBucketOperationsRequest
+          request) override;
+
+  StatusOr<google::cloud::storagebatchoperations::v1::BucketOperation>
+  GetBucketOperation(google::cloud::storagebatchoperations::v1::
+                         GetBucketOperationRequest const& request) override;
+
   StreamRange<google::cloud::location::Location> ListLocations(
       google::cloud::location::ListLocationsRequest request) override;
 

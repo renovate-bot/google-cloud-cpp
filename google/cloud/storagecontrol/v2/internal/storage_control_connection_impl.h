@@ -78,6 +78,20 @@ class StorageControlConnectionImpl
   future<StatusOr<google::storage::control::v2::Folder>> RenameFolder(
       google::longrunning::Operation const& operation) override;
 
+  future<StatusOr<google::storage::control::v2::DeleteFolderRecursiveMetadata>>
+  DeleteFolderRecursive(
+      google::storage::control::v2::DeleteFolderRecursiveRequest const& request)
+      override;
+
+  StatusOr<google::longrunning::Operation> DeleteFolderRecursive(
+      NoAwaitTag,
+      google::storage::control::v2::DeleteFolderRecursiveRequest const& request)
+      override;
+
+  future<StatusOr<google::storage::control::v2::DeleteFolderRecursiveMetadata>>
+  DeleteFolderRecursive(
+      google::longrunning::Operation const& operation) override;
+
   StatusOr<google::storage::control::v2::StorageLayout> GetStorageLayout(
       google::storage::control::v2::GetStorageLayoutRequest const& request)
       override;

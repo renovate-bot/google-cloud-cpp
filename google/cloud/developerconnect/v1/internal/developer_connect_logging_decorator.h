@@ -244,6 +244,16 @@ class DeveloperConnectLogging : public DeveloperConnectStub {
       google::cloud::developerconnect::v1::DeleteSelfRequest const& request)
       override;
 
+  StatusOr<google::cloud::developerconnect::v1::StartOAuthResponse> StartOAuth(
+      grpc::ClientContext& context, Options const& options,
+      google::cloud::developerconnect::v1::StartOAuthRequest const& request)
+      override;
+
+  StatusOr<google::cloud::developerconnect::v1::FinishOAuthResponse>
+  FinishOAuth(grpc::ClientContext& context, Options const& options,
+              google::cloud::developerconnect::v1::FinishOAuthRequest const&
+                  request) override;
+
   StatusOr<google::cloud::location::ListLocationsResponse> ListLocations(
       grpc::ClientContext& context, Options const& options,
       google::cloud::location::ListLocationsRequest const& request) override;

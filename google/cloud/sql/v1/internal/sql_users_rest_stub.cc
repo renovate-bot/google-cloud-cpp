@@ -109,6 +109,8 @@ DefaultSqlUsersServiceRestStub::Update(
   std::vector<std::pair<std::string, std::string>> query_params;
   query_params.push_back({"host", request.host()});
   query_params.push_back({"name", request.name()});
+  query_params.push_back(
+      {"revoke_existing_roles", (request.revoke_existing_roles() ? "1" : "0")});
   query_params =
       rest_internal::TrimEmptyQueryParameters(std::move(query_params));
   return rest_internal::Put<google::cloud::sql::v1::Operation>(

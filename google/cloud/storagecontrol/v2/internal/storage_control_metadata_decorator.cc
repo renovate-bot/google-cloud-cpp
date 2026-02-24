@@ -202,6 +202,67 @@ StatusOr<google::longrunning::Operation> StorageControlMetadata::RenameFolder(
   return child_->RenameFolder(context, options, request);
 }
 
+future<StatusOr<google::longrunning::Operation>>
+StorageControlMetadata::AsyncDeleteFolderRecursive(
+    google::cloud::CompletionQueue& cq,
+    std::shared_ptr<grpc::ClientContext> context,
+    google::cloud::internal::ImmutableOptions options,
+    google::storage::control::v2::DeleteFolderRecursiveRequest const& request) {
+  std::vector<std::string> params;
+  params.reserve(1);
+
+  static auto* bucket_matcher = [] {
+    return new google::cloud::internal::RoutingMatcher<
+        google::storage::control::v2::DeleteFolderRecursiveRequest>{
+        "bucket=",
+        {
+            {[](google::storage::control::v2::
+                    DeleteFolderRecursiveRequest const& request)
+                 -> std::string const& { return request.name(); },
+             std::regex{"(projects/[^/]+/buckets/[^/]+)/.*",
+                        std::regex::optimize}},
+        }};
+  }();
+  bucket_matcher->AppendParam(request, params);
+
+  if (params.empty()) {
+    SetMetadata(*context, *options);
+  } else {
+    SetMetadata(*context, *options, absl::StrJoin(params, "&"));
+  }
+  return child_->AsyncDeleteFolderRecursive(cq, std::move(context),
+                                            std::move(options), request);
+}
+
+StatusOr<google::longrunning::Operation>
+StorageControlMetadata::DeleteFolderRecursive(
+    grpc::ClientContext& context, Options options,
+    google::storage::control::v2::DeleteFolderRecursiveRequest const& request) {
+  std::vector<std::string> params;
+  params.reserve(1);
+
+  static auto* bucket_matcher = [] {
+    return new google::cloud::internal::RoutingMatcher<
+        google::storage::control::v2::DeleteFolderRecursiveRequest>{
+        "bucket=",
+        {
+            {[](google::storage::control::v2::
+                    DeleteFolderRecursiveRequest const& request)
+                 -> std::string const& { return request.name(); },
+             std::regex{"(projects/[^/]+/buckets/[^/]+)/.*",
+                        std::regex::optimize}},
+        }};
+  }();
+  bucket_matcher->AppendParam(request, params);
+
+  if (params.empty()) {
+    SetMetadata(context, options);
+  } else {
+    SetMetadata(context, options, absl::StrJoin(params, "&"));
+  }
+  return child_->DeleteFolderRecursive(context, options, request);
+}
+
 StatusOr<google::storage::control::v2::StorageLayout>
 StorageControlMetadata::GetStorageLayout(
     grpc::ClientContext& context, Options const& options,

@@ -123,6 +123,35 @@ StorageBatchOperationsLogging::CancelJob(
       context, options, request, __func__, tracing_options_);
 }
 
+StatusOr<
+    google::cloud::storagebatchoperations::v1::ListBucketOperationsResponse>
+StorageBatchOperationsLogging::ListBucketOperations(
+    grpc::ClientContext& context, Options const& options,
+    google::cloud::storagebatchoperations::v1::
+        ListBucketOperationsRequest const& request) {
+  return google::cloud::internal::LogWrapper(
+      [this](grpc::ClientContext& context, Options const& options,
+             google::cloud::storagebatchoperations::v1::
+                 ListBucketOperationsRequest const& request) {
+        return child_->ListBucketOperations(context, options, request);
+      },
+      context, options, request, __func__, tracing_options_);
+}
+
+StatusOr<google::cloud::storagebatchoperations::v1::BucketOperation>
+StorageBatchOperationsLogging::GetBucketOperation(
+    grpc::ClientContext& context, Options const& options,
+    google::cloud::storagebatchoperations::v1::GetBucketOperationRequest const&
+        request) {
+  return google::cloud::internal::LogWrapper(
+      [this](grpc::ClientContext& context, Options const& options,
+             google::cloud::storagebatchoperations::v1::
+                 GetBucketOperationRequest const& request) {
+        return child_->GetBucketOperation(context, options, request);
+      },
+      context, options, request, __func__, tracing_options_);
+}
+
 StatusOr<google::cloud::location::ListLocationsResponse>
 StorageBatchOperationsLogging::ListLocations(
     grpc::ClientContext& context, Options const& options,

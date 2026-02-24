@@ -310,6 +310,11 @@ ParameterCommentSubstitution substitutions[] = {
     {"`projects/<ProjectID>/locations/<LocationID>/agents/<AgentID>.",
      "`projects/<ProjectID>/locations/<LocationID>/agents/<AgentID>`."},
 
+    // From google/cloud/gkehub/v1/service.proto
+    {R"""(Given 'updated'
+ prefix to follow go/proto-best-practices-checkers#keyword_conflict)""",
+     R"""()"""},
+
     // Some comments include multiple newlines in a row. We need to preserve
     // these because they are paragraph separators. When used in `@param`
     // commands we need to represent them as `@n` or they do would terminate the
@@ -342,6 +347,10 @@ std::string FormattedCommentsForParameter(
   google::protobuf::SourceLocation loc;
   parameter_descriptor->GetSourceLocation(&loc);
   auto comment = EscapePrinterDelimiter(ChompByValue(loc.leading_comments));
+  if (absl::StrContains(comment,
+                        "go/proto-best-practices-checkers#keyword_conflict")) {
+    std::cout << __func__ << comment << "\n";
+  }
   // This is an arbitrary threshold. The intent is to simplify the generator
   // code for corner cases. In the few cases where the documentation of a field
   // is extremely detailed it manages to confuse Doxygen. We could try to

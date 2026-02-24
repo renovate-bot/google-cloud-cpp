@@ -57,6 +57,14 @@ class StorageBatchOperationsConnectionIdempotencyPolicy {
       google::cloud::storagebatchoperations::v1::CancelJobRequest const&
           request);
 
+  virtual google::cloud::Idempotency ListBucketOperations(
+      google::cloud::storagebatchoperations::v1::ListBucketOperationsRequest
+          request);
+
+  virtual google::cloud::Idempotency GetBucketOperation(
+      google::cloud::storagebatchoperations::v1::
+          GetBucketOperationRequest const& request);
+
   virtual google::cloud::Idempotency ListLocations(
       google::cloud::location::ListLocationsRequest request);
 

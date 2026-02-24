@@ -219,6 +219,16 @@ class StorageBatchOperationsConnection {
   CancelJob(google::cloud::storagebatchoperations::v1::CancelJobRequest const&
                 request);
 
+  virtual StreamRange<
+      google::cloud::storagebatchoperations::v1::BucketOperation>
+  ListBucketOperations(
+      google::cloud::storagebatchoperations::v1::ListBucketOperationsRequest
+          request);
+
+  virtual StatusOr<google::cloud::storagebatchoperations::v1::BucketOperation>
+  GetBucketOperation(google::cloud::storagebatchoperations::v1::
+                         GetBucketOperationRequest const& request);
+
   virtual StreamRange<google::cloud::location::Location> ListLocations(
       google::cloud::location::ListLocationsRequest request);
 

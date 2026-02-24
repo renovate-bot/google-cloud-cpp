@@ -116,6 +116,35 @@ StorageBatchOperationsTracingStub::CancelJob(
                            child_->CancelJob(context, options, request));
 }
 
+StatusOr<
+    google::cloud::storagebatchoperations::v1::ListBucketOperationsResponse>
+StorageBatchOperationsTracingStub::ListBucketOperations(
+    grpc::ClientContext& context, Options const& options,
+    google::cloud::storagebatchoperations::v1::
+        ListBucketOperationsRequest const& request) {
+  auto span = internal::MakeSpanGrpc(
+      "google.cloud.storagebatchoperations.v1.StorageBatchOperations",
+      "ListBucketOperations");
+  auto scope = opentelemetry::trace::Scope(span);
+  internal::InjectTraceContext(context, *propagator_);
+  return internal::EndSpan(
+      context, *span, child_->ListBucketOperations(context, options, request));
+}
+
+StatusOr<google::cloud::storagebatchoperations::v1::BucketOperation>
+StorageBatchOperationsTracingStub::GetBucketOperation(
+    grpc::ClientContext& context, Options const& options,
+    google::cloud::storagebatchoperations::v1::GetBucketOperationRequest const&
+        request) {
+  auto span = internal::MakeSpanGrpc(
+      "google.cloud.storagebatchoperations.v1.StorageBatchOperations",
+      "GetBucketOperation");
+  auto scope = opentelemetry::trace::Scope(span);
+  internal::InjectTraceContext(context, *propagator_);
+  return internal::EndSpan(
+      context, *span, child_->GetBucketOperation(context, options, request));
+}
+
 StatusOr<google::cloud::location::ListLocationsResponse>
 StorageBatchOperationsTracingStub::ListLocations(
     grpc::ClientContext& context, Options const& options,

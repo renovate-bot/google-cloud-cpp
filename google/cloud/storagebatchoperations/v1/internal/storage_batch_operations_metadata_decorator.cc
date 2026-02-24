@@ -108,6 +108,27 @@ StorageBatchOperationsMetadata::CancelJob(
   return child_->CancelJob(context, options, request);
 }
 
+StatusOr<
+    google::cloud::storagebatchoperations::v1::ListBucketOperationsResponse>
+StorageBatchOperationsMetadata::ListBucketOperations(
+    grpc::ClientContext& context, Options const& options,
+    google::cloud::storagebatchoperations::v1::
+        ListBucketOperationsRequest const& request) {
+  SetMetadata(context, options,
+              absl::StrCat("parent=", internal::UrlEncode(request.parent())));
+  return child_->ListBucketOperations(context, options, request);
+}
+
+StatusOr<google::cloud::storagebatchoperations::v1::BucketOperation>
+StorageBatchOperationsMetadata::GetBucketOperation(
+    grpc::ClientContext& context, Options const& options,
+    google::cloud::storagebatchoperations::v1::GetBucketOperationRequest const&
+        request) {
+  SetMetadata(context, options,
+              absl::StrCat("name=", internal::UrlEncode(request.name())));
+  return child_->GetBucketOperation(context, options, request);
+}
+
 StatusOr<google::cloud::location::ListLocationsResponse>
 StorageBatchOperationsMetadata::ListLocations(
     grpc::ClientContext& context, Options const& options,

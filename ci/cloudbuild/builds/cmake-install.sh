@@ -99,6 +99,7 @@ expected_dirs+=(
   ./include/google/cloud/gkebackup/logging/v1
   ./include/google/cloud/gkehub/v1/configmanagement
   ./include/google/cloud/gkehub/v1/multiclusteringress
+  ./include/google/cloud/gkehub/v1/rbacrolebindingactuation
   ./include/google/cloud/internal
   ./include/google/cloud/internal/win32
   ./include/google/cloud/location

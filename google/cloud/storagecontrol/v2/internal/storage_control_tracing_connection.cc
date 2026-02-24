@@ -96,6 +96,37 @@ StorageControlTracingConnection::RenameFolder(
   return internal::EndSpan(std::move(span), child_->RenameFolder(operation));
 }
 
+future<StatusOr<google::storage::control::v2::DeleteFolderRecursiveMetadata>>
+StorageControlTracingConnection::DeleteFolderRecursive(
+    google::storage::control::v2::DeleteFolderRecursiveRequest const& request) {
+  auto span = internal::MakeSpan(
+      "storagecontrol_v2::StorageControlConnection::DeleteFolderRecursive");
+  internal::OTelScope scope(span);
+  return internal::EndSpan(std::move(span),
+                           child_->DeleteFolderRecursive(request));
+}
+
+StatusOr<google::longrunning::Operation>
+StorageControlTracingConnection::DeleteFolderRecursive(
+    NoAwaitTag,
+    google::storage::control::v2::DeleteFolderRecursiveRequest const& request) {
+  auto span = internal::MakeSpan(
+      "storagecontrol_v2::StorageControlConnection::DeleteFolderRecursive");
+  opentelemetry::trace::Scope scope(span);
+  return internal::EndSpan(
+      *span, child_->DeleteFolderRecursive(NoAwaitTag{}, request));
+}
+
+future<StatusOr<google::storage::control::v2::DeleteFolderRecursiveMetadata>>
+StorageControlTracingConnection::DeleteFolderRecursive(
+    google::longrunning::Operation const& operation) {
+  auto span = internal::MakeSpan(
+      "storagecontrol_v2::StorageControlConnection::DeleteFolderRecursive");
+  internal::OTelScope scope(span);
+  return internal::EndSpan(std::move(span),
+                           child_->DeleteFolderRecursive(operation));
+}
+
 StatusOr<google::storage::control::v2::StorageLayout>
 StorageControlTracingConnection::GetStorageLayout(
     google::storage::control::v2::GetStorageLayoutRequest const& request) {

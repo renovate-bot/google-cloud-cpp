@@ -68,6 +68,19 @@ class StorageControlStub {
       grpc::ClientContext& context, Options options,
       google::storage::control::v2::RenameFolderRequest const& request) = 0;
 
+  virtual future<StatusOr<google::longrunning::Operation>>
+  AsyncDeleteFolderRecursive(
+      google::cloud::CompletionQueue& cq,
+      std::shared_ptr<grpc::ClientContext> context,
+      google::cloud::internal::ImmutableOptions options,
+      google::storage::control::v2::DeleteFolderRecursiveRequest const&
+          request) = 0;
+
+  virtual StatusOr<google::longrunning::Operation> DeleteFolderRecursive(
+      grpc::ClientContext& context, Options options,
+      google::storage::control::v2::DeleteFolderRecursiveRequest const&
+          request) = 0;
+
   virtual StatusOr<google::storage::control::v2::StorageLayout>
   GetStorageLayout(
       grpc::ClientContext& context, Options const& options,
@@ -250,6 +263,18 @@ class DefaultStorageControlStub : public StorageControlStub {
   StatusOr<google::longrunning::Operation> RenameFolder(
       grpc::ClientContext& context, Options options,
       google::storage::control::v2::RenameFolderRequest const& request)
+      override;
+
+  future<StatusOr<google::longrunning::Operation>> AsyncDeleteFolderRecursive(
+      google::cloud::CompletionQueue& cq,
+      std::shared_ptr<grpc::ClientContext> context,
+      google::cloud::internal::ImmutableOptions options,
+      google::storage::control::v2::DeleteFolderRecursiveRequest const& request)
+      override;
+
+  StatusOr<google::longrunning::Operation> DeleteFolderRecursive(
+      grpc::ClientContext& context, Options options,
+      google::storage::control::v2::DeleteFolderRecursiveRequest const& request)
       override;
 
   StatusOr<google::storage::control::v2::StorageLayout> GetStorageLayout(

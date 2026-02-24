@@ -216,6 +216,21 @@ class StorageControlConnection {
   virtual future<StatusOr<google::storage::control::v2::Folder>> RenameFolder(
       google::longrunning::Operation const& operation);
 
+  virtual future<
+      StatusOr<google::storage::control::v2::DeleteFolderRecursiveMetadata>>
+  DeleteFolderRecursive(
+      google::storage::control::v2::DeleteFolderRecursiveRequest const&
+          request);
+
+  virtual StatusOr<google::longrunning::Operation> DeleteFolderRecursive(
+      NoAwaitTag,
+      google::storage::control::v2::DeleteFolderRecursiveRequest const&
+          request);
+
+  virtual future<
+      StatusOr<google::storage::control::v2::DeleteFolderRecursiveMetadata>>
+  DeleteFolderRecursive(google::longrunning::Operation const& operation);
+
   virtual StatusOr<google::storage::control::v2::StorageLayout>
   GetStorageLayout(
       google::storage::control::v2::GetStorageLayoutRequest const& request);

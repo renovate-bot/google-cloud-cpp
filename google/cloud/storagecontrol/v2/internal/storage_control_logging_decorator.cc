@@ -113,6 +113,38 @@ StatusOr<google::longrunning::Operation> StorageControlLogging::RenameFolder(
       context, options, request, __func__, tracing_options_);
 }
 
+future<StatusOr<google::longrunning::Operation>>
+StorageControlLogging::AsyncDeleteFolderRecursive(
+    google::cloud::CompletionQueue& cq,
+    std::shared_ptr<grpc::ClientContext> context,
+    google::cloud::internal::ImmutableOptions options,
+    google::storage::control::v2::DeleteFolderRecursiveRequest const& request) {
+  return google::cloud::internal::LogWrapper(
+      [this](google::cloud::CompletionQueue& cq,
+             std::shared_ptr<grpc::ClientContext> context,
+             google::cloud::internal::ImmutableOptions options,
+             google::storage::control::v2::DeleteFolderRecursiveRequest const&
+                 request) {
+        return child_->AsyncDeleteFolderRecursive(cq, std::move(context),
+                                                  std::move(options), request);
+      },
+      cq, std::move(context), std::move(options), request, __func__,
+      tracing_options_);
+}
+
+StatusOr<google::longrunning::Operation>
+StorageControlLogging::DeleteFolderRecursive(
+    grpc::ClientContext& context, Options options,
+    google::storage::control::v2::DeleteFolderRecursiveRequest const& request) {
+  return google::cloud::internal::LogWrapper(
+      [this](grpc::ClientContext& context, Options const& options,
+             google::storage::control::v2::DeleteFolderRecursiveRequest const&
+                 request) {
+        return child_->DeleteFolderRecursive(context, options, request);
+      },
+      context, options, request, __func__, tracing_options_);
+}
+
 StatusOr<google::storage::control::v2::StorageLayout>
 StorageControlLogging::GetStorageLayout(
     grpc::ClientContext& context, Options const& options,

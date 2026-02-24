@@ -128,6 +128,12 @@ class DeveloperConnectConnectionIdempotencyPolicy {
   virtual google::cloud::Idempotency DeleteSelf(
       google::cloud::developerconnect::v1::DeleteSelfRequest const& request);
 
+  virtual google::cloud::Idempotency StartOAuth(
+      google::cloud::developerconnect::v1::StartOAuthRequest const& request);
+
+  virtual google::cloud::Idempotency FinishOAuth(
+      google::cloud::developerconnect::v1::FinishOAuthRequest const& request);
+
   virtual google::cloud::Idempotency ListLocations(
       google::cloud::location::ListLocationsRequest request);
 

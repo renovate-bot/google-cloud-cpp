@@ -101,6 +101,27 @@ StorageBatchOperationsAuth::CancelJob(
   return child_->CancelJob(context, options, request);
 }
 
+StatusOr<
+    google::cloud::storagebatchoperations::v1::ListBucketOperationsResponse>
+StorageBatchOperationsAuth::ListBucketOperations(
+    grpc::ClientContext& context, Options const& options,
+    google::cloud::storagebatchoperations::v1::
+        ListBucketOperationsRequest const& request) {
+  auto status = auth_->ConfigureContext(context);
+  if (!status.ok()) return status;
+  return child_->ListBucketOperations(context, options, request);
+}
+
+StatusOr<google::cloud::storagebatchoperations::v1::BucketOperation>
+StorageBatchOperationsAuth::GetBucketOperation(
+    grpc::ClientContext& context, Options const& options,
+    google::cloud::storagebatchoperations::v1::GetBucketOperationRequest const&
+        request) {
+  auto status = auth_->ConfigureContext(context);
+  if (!status.ok()) return status;
+  return child_->GetBucketOperation(context, options, request);
+}
+
 StatusOr<google::cloud::location::ListLocationsResponse>
 StorageBatchOperationsAuth::ListLocations(
     grpc::ClientContext& context, Options const& options,

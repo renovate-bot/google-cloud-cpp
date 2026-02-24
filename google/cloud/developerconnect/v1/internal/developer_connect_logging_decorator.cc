@@ -566,6 +566,32 @@ StatusOr<google::longrunning::Operation> DeveloperConnectLogging::DeleteSelf(
       context, options, request, __func__, tracing_options_);
 }
 
+StatusOr<google::cloud::developerconnect::v1::StartOAuthResponse>
+DeveloperConnectLogging::StartOAuth(
+    grpc::ClientContext& context, Options const& options,
+    google::cloud::developerconnect::v1::StartOAuthRequest const& request) {
+  return google::cloud::internal::LogWrapper(
+      [this](grpc::ClientContext& context, Options const& options,
+             google::cloud::developerconnect::v1::StartOAuthRequest const&
+                 request) {
+        return child_->StartOAuth(context, options, request);
+      },
+      context, options, request, __func__, tracing_options_);
+}
+
+StatusOr<google::cloud::developerconnect::v1::FinishOAuthResponse>
+DeveloperConnectLogging::FinishOAuth(
+    grpc::ClientContext& context, Options const& options,
+    google::cloud::developerconnect::v1::FinishOAuthRequest const& request) {
+  return google::cloud::internal::LogWrapper(
+      [this](grpc::ClientContext& context, Options const& options,
+             google::cloud::developerconnect::v1::FinishOAuthRequest const&
+                 request) {
+        return child_->FinishOAuth(context, options, request);
+      },
+      context, options, request, __func__, tracing_options_);
+}
+
 StatusOr<google::cloud::location::ListLocationsResponse>
 DeveloperConnectLogging::ListLocations(
     grpc::ClientContext& context, Options const& options,

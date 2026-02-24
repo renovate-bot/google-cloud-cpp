@@ -515,6 +515,24 @@ DeveloperConnectTracingConnection::DeleteSelf(
   return internal::EndSpan(std::move(span), child_->DeleteSelf(operation));
 }
 
+StatusOr<google::cloud::developerconnect::v1::StartOAuthResponse>
+DeveloperConnectTracingConnection::StartOAuth(
+    google::cloud::developerconnect::v1::StartOAuthRequest const& request) {
+  auto span = internal::MakeSpan(
+      "developerconnect_v1::DeveloperConnectConnection::StartOAuth");
+  auto scope = opentelemetry::trace::Scope(span);
+  return internal::EndSpan(*span, child_->StartOAuth(request));
+}
+
+StatusOr<google::cloud::developerconnect::v1::FinishOAuthResponse>
+DeveloperConnectTracingConnection::FinishOAuth(
+    google::cloud::developerconnect::v1::FinishOAuthRequest const& request) {
+  auto span = internal::MakeSpan(
+      "developerconnect_v1::DeveloperConnectConnection::FinishOAuth");
+  auto scope = opentelemetry::trace::Scope(span);
+  return internal::EndSpan(*span, child_->FinishOAuth(request));
+}
+
 StreamRange<google::cloud::location::Location>
 DeveloperConnectTracingConnection::ListLocations(
     google::cloud::location::ListLocationsRequest request) {

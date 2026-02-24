@@ -87,6 +87,19 @@ KeyManagementServiceLogging::ListImportJobs(
       context, options, request, __func__, tracing_options_);
 }
 
+StatusOr<google::cloud::kms::v1::ListRetiredResourcesResponse>
+KeyManagementServiceLogging::ListRetiredResources(
+    grpc::ClientContext& context, Options const& options,
+    google::cloud::kms::v1::ListRetiredResourcesRequest const& request) {
+  return google::cloud::internal::LogWrapper(
+      [this](
+          grpc::ClientContext& context, Options const& options,
+          google::cloud::kms::v1::ListRetiredResourcesRequest const& request) {
+        return child_->ListRetiredResources(context, options, request);
+      },
+      context, options, request, __func__, tracing_options_);
+}
+
 StatusOr<google::cloud::kms::v1::KeyRing>
 KeyManagementServiceLogging::GetKeyRing(
     grpc::ClientContext& context, Options const& options,
@@ -148,6 +161,18 @@ KeyManagementServiceLogging::GetImportJob(
       context, options, request, __func__, tracing_options_);
 }
 
+StatusOr<google::cloud::kms::v1::RetiredResource>
+KeyManagementServiceLogging::GetRetiredResource(
+    grpc::ClientContext& context, Options const& options,
+    google::cloud::kms::v1::GetRetiredResourceRequest const& request) {
+  return google::cloud::internal::LogWrapper(
+      [this](grpc::ClientContext& context, Options const& options,
+             google::cloud::kms::v1::GetRetiredResourceRequest const& request) {
+        return child_->GetRetiredResource(context, options, request);
+      },
+      context, options, request, __func__, tracing_options_);
+}
+
 StatusOr<google::cloud::kms::v1::KeyRing>
 KeyManagementServiceLogging::CreateKeyRing(
     grpc::ClientContext& context, Options const& options,
@@ -181,6 +206,68 @@ KeyManagementServiceLogging::CreateCryptoKeyVersion(
              google::cloud::kms::v1::CreateCryptoKeyVersionRequest const&
                  request) {
         return child_->CreateCryptoKeyVersion(context, options, request);
+      },
+      context, options, request, __func__, tracing_options_);
+}
+
+future<StatusOr<google::longrunning::Operation>>
+KeyManagementServiceLogging::AsyncDeleteCryptoKey(
+    google::cloud::CompletionQueue& cq,
+    std::shared_ptr<grpc::ClientContext> context,
+    google::cloud::internal::ImmutableOptions options,
+    google::cloud::kms::v1::DeleteCryptoKeyRequest const& request) {
+  return google::cloud::internal::LogWrapper(
+      [this](google::cloud::CompletionQueue& cq,
+             std::shared_ptr<grpc::ClientContext> context,
+             google::cloud::internal::ImmutableOptions options,
+             google::cloud::kms::v1::DeleteCryptoKeyRequest const& request) {
+        return child_->AsyncDeleteCryptoKey(cq, std::move(context),
+                                            std::move(options), request);
+      },
+      cq, std::move(context), std::move(options), request, __func__,
+      tracing_options_);
+}
+
+StatusOr<google::longrunning::Operation>
+KeyManagementServiceLogging::DeleteCryptoKey(
+    grpc::ClientContext& context, Options options,
+    google::cloud::kms::v1::DeleteCryptoKeyRequest const& request) {
+  return google::cloud::internal::LogWrapper(
+      [this](grpc::ClientContext& context, Options const& options,
+             google::cloud::kms::v1::DeleteCryptoKeyRequest const& request) {
+        return child_->DeleteCryptoKey(context, options, request);
+      },
+      context, options, request, __func__, tracing_options_);
+}
+
+future<StatusOr<google::longrunning::Operation>>
+KeyManagementServiceLogging::AsyncDeleteCryptoKeyVersion(
+    google::cloud::CompletionQueue& cq,
+    std::shared_ptr<grpc::ClientContext> context,
+    google::cloud::internal::ImmutableOptions options,
+    google::cloud::kms::v1::DeleteCryptoKeyVersionRequest const& request) {
+  return google::cloud::internal::LogWrapper(
+      [this](google::cloud::CompletionQueue& cq,
+             std::shared_ptr<grpc::ClientContext> context,
+             google::cloud::internal::ImmutableOptions options,
+             google::cloud::kms::v1::DeleteCryptoKeyVersionRequest const&
+                 request) {
+        return child_->AsyncDeleteCryptoKeyVersion(cq, std::move(context),
+                                                   std::move(options), request);
+      },
+      cq, std::move(context), std::move(options), request, __func__,
+      tracing_options_);
+}
+
+StatusOr<google::longrunning::Operation>
+KeyManagementServiceLogging::DeleteCryptoKeyVersion(
+    grpc::ClientContext& context, Options options,
+    google::cloud::kms::v1::DeleteCryptoKeyVersionRequest const& request) {
+  return google::cloud::internal::LogWrapper(
+      [this](grpc::ClientContext& context, Options const& options,
+             google::cloud::kms::v1::DeleteCryptoKeyVersionRequest const&
+                 request) {
+        return child_->DeleteCryptoKeyVersion(context, options, request);
       },
       context, options, request, __func__, tracing_options_);
 }
@@ -464,6 +551,41 @@ KeyManagementServiceLogging::GetOperation(
         return child_->GetOperation(context, options, request);
       },
       context, options, request, __func__, tracing_options_);
+}
+
+future<StatusOr<google::longrunning::Operation>>
+KeyManagementServiceLogging::AsyncGetOperation(
+    google::cloud::CompletionQueue& cq,
+    std::shared_ptr<grpc::ClientContext> context,
+    google::cloud::internal::ImmutableOptions options,
+    google::longrunning::GetOperationRequest const& request) {
+  return google::cloud::internal::LogWrapper(
+      [this](google::cloud::CompletionQueue& cq,
+             std::shared_ptr<grpc::ClientContext> context,
+             google::cloud::internal::ImmutableOptions options,
+             google::longrunning::GetOperationRequest const& request) {
+        return child_->AsyncGetOperation(cq, std::move(context),
+                                         std::move(options), request);
+      },
+      cq, std::move(context), std::move(options), request, __func__,
+      tracing_options_);
+}
+
+future<Status> KeyManagementServiceLogging::AsyncCancelOperation(
+    google::cloud::CompletionQueue& cq,
+    std::shared_ptr<grpc::ClientContext> context,
+    google::cloud::internal::ImmutableOptions options,
+    google::longrunning::CancelOperationRequest const& request) {
+  return google::cloud::internal::LogWrapper(
+      [this](google::cloud::CompletionQueue& cq,
+             std::shared_ptr<grpc::ClientContext> context,
+             google::cloud::internal::ImmutableOptions options,
+             google::longrunning::CancelOperationRequest const& request) {
+        return child_->AsyncCancelOperation(cq, std::move(context),
+                                            std::move(options), request);
+      },
+      cq, std::move(context), std::move(options), request, __func__,
+      tracing_options_);
 }
 
 GOOGLE_CLOUD_CPP_INLINE_NAMESPACE_END

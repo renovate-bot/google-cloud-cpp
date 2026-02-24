@@ -116,6 +116,34 @@ DefaultStorageBatchOperationsStub::CancelJob(
   return response;
 }
 
+StatusOr<
+    google::cloud::storagebatchoperations::v1::ListBucketOperationsResponse>
+DefaultStorageBatchOperationsStub::ListBucketOperations(
+    grpc::ClientContext& context, Options const&,
+    google::cloud::storagebatchoperations::v1::
+        ListBucketOperationsRequest const& request) {
+  google::cloud::storagebatchoperations::v1::ListBucketOperationsResponse
+      response;
+  auto status = grpc_stub_->ListBucketOperations(&context, request, &response);
+  if (!status.ok()) {
+    return google::cloud::MakeStatusFromRpcError(status);
+  }
+  return response;
+}
+
+StatusOr<google::cloud::storagebatchoperations::v1::BucketOperation>
+DefaultStorageBatchOperationsStub::GetBucketOperation(
+    grpc::ClientContext& context, Options const&,
+    google::cloud::storagebatchoperations::v1::GetBucketOperationRequest const&
+        request) {
+  google::cloud::storagebatchoperations::v1::BucketOperation response;
+  auto status = grpc_stub_->GetBucketOperation(&context, request, &response);
+  if (!status.ok()) {
+    return google::cloud::MakeStatusFromRpcError(status);
+  }
+  return response;
+}
+
 StatusOr<google::cloud::location::ListLocationsResponse>
 DefaultStorageBatchOperationsStub::ListLocations(
     grpc::ClientContext& context, Options const&,

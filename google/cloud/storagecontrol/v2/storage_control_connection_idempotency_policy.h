@@ -52,6 +52,10 @@ class StorageControlConnectionIdempotencyPolicy {
   virtual google::cloud::Idempotency RenameFolder(
       google::storage::control::v2::RenameFolderRequest const& request);
 
+  virtual google::cloud::Idempotency DeleteFolderRecursive(
+      google::storage::control::v2::DeleteFolderRecursiveRequest const&
+          request);
+
   virtual google::cloud::Idempotency GetStorageLayout(
       google::storage::control::v2::GetStorageLayoutRequest const& request);
 
