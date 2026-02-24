@@ -347,10 +347,6 @@ std::string FormattedCommentsForParameter(
   google::protobuf::SourceLocation loc;
   parameter_descriptor->GetSourceLocation(&loc);
   auto comment = EscapePrinterDelimiter(ChompByValue(loc.leading_comments));
-  if (absl::StrContains(comment,
-                        "go/proto-best-practices-checkers#keyword_conflict")) {
-    std::cout << __func__ << comment << "\n";
-  }
   // This is an arbitrary threshold. The intent is to simplify the generator
   // code for corner cases. In the few cases where the documentation of a field
   // is extremely detailed it manages to confuse Doxygen. We could try to
