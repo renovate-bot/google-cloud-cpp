@@ -191,6 +191,11 @@ MethodCommentSubstitution substitutions[] = {
     // From google/dialogflow/v2/conversation.proto
     {kDialogflowEsConversationsProto, kDialogflowEsConversationsCpp},
 
+    // From google/cloud/visionai/v1/warehouse.proto
+    // The "---" are transformed into a <mdash/> element which breaks our docs
+    // process.
+    {R"""(--- General Rules ---)""", R"""(General Rules:)"""},
+
     // Add Doxygen-style comments
     {"\n", "\n  ///"},
 
