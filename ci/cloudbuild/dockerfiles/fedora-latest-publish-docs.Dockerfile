@@ -33,8 +33,7 @@ RUN dnf makecache && \
         libcurl-devel \
         openssl-devel \
         protobuf-devel \
-        pugixml-devel \
-        yaml-cpp-devel
+        pugixml-devel
 
 # This is used in the `publish-docs` build
 RUN dnf makecache && dnf install -y libxslt
@@ -44,6 +43,18 @@ RUN dnf makecache && dnf install -y libxslt
 # we run these containers as the invoking user's uid, which does not exist in
 # the container's /etc/passwd file.
 RUN echo 'root:cloudcxx' | chpasswd
+
+WORKDIR /var/tmp/build/
+RUN curl -fsSL https://github.com/jbeder/yaml-cpp/archive/refs/tags/yaml-cpp-0.9.0.tar.gz | \
+    tar -xzf - --strip-components=1 && \
+    cmake \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_CXX_STANDARD=17 \
+        -DBUILD_SHARED_LIBS=ON \
+        -DBUILD_TESTING=OFF \
+        -S . -B cmake-out -GNinja && \
+    cmake --build cmake-out --target install && \
+    ldconfig && cd /var/tmp && rm -fr build
 
 # We would prefer to say `dnf install -y doxygen`, but Fedora 40 ships with
 # Doxygen 1.10.0 and we need fixes that were released in Doxygen 1.11.0. Also,

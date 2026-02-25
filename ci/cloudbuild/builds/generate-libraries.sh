@@ -24,10 +24,8 @@ source module ci/lib/io.sh
 
 bazel_output_base="$(bazel info output_base)"
 
-# As we support both WORKSPACE and MODULE modes for bazel, we need to determine
-# the path to these dependencies dynamically.
-read -r protobuf_proto_path < <(find "${bazel_output_base}/external" -name "empty.proto" | sed -nE 's/(.+\/src)\/google\/protobuf\/empty.proto/\1/p')
-read -r googleapis_proto_path < <(find "${bazel_output_base}/external" -name "api-index-v1.json" | sed -nE 's/(.+)\/api-index-v1.json/\1/p')
+protobuf_proto_path="${bazel_output_base}/external/protobuf+/src"
+googleapis_proto_path="${bazel_output_base}/external/googleapis+"
 
 if [ -z "${UPDATED_DISCOVERY_DOCUMENT}" ]; then
   io::log_h2 "Removing previously generated golden files"

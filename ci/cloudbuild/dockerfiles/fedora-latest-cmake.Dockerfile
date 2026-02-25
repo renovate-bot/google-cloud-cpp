@@ -40,7 +40,7 @@ RUN dnf makecache && dnf install -y "dnf-command(debuginfo-install)"
 RUN dnf makecache && dnf debuginfo-install -y libstdc++
 
 # These are used by the docfx tool.
-RUN dnf makecache && dnf install -y pugixml-devel yaml-cpp-devel
+RUN dnf makecache && dnf install -y pugixml-devel
 
 RUN dnf install -y valgrind
 
@@ -49,6 +49,18 @@ RUN dnf install -y valgrind
 # we run these containers as the invoking user's uid, which does not exist in
 # the container's /etc/passwd file.
 RUN echo "root:cloudcxx" | chpasswd
+
+WORKDIR /var/tmp/build/
+RUN curl -fsSL https://github.com/jbeder/yaml-cpp/archive/refs/tags/yaml-cpp-0.9.0.tar.gz | \
+    tar -xzf - --strip-components=1 && \
+    cmake \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_CXX_STANDARD=17 \
+        -DBUILD_SHARED_LIBS=ON \
+        -DBUILD_TESTING=OFF \
+        -S . -B cmake-out -GNinja && \
+    cmake --build cmake-out --target install && \
+    ldconfig && cd /var/tmp && rm -fr build
 
 # Fedora's version of `pkg-config` (https://github.com/pkgconf/pkgconf) is slow
 # when handling `.pc` files with lots of `Requires:` deps.  This problem is
