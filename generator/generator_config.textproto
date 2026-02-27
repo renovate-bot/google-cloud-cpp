@@ -2664,6 +2664,14 @@ service {
   retryable_status_codes: ["kUnavailable"]
 }
 
+# Hypercompute Cluster
+service {
+  service_proto_path: "google/cloud/hypercomputecluster/v1/hypercompute_cluster.proto"
+  product_path: "google/cloud/hypercomputecluster/v1"
+  initial_copyright_year: "2026"
+  retryable_status_codes: ["kUnavailable"]
+}
+
 # IAM
 service {
   service_proto_path: "google/iam/credentials/v1/iamcredentials.proto"

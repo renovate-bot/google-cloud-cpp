@@ -178,6 +178,7 @@ declare -A -r LIBRARIES=(
   )"
   ["gkemulticloud"]="@googleapis//google/cloud/gkemulticloud/v1:gkemulticloud_cc_grpc"
   ["grafeas"]="@googleapis//grafeas/v1:grafeas_cc_grpc"
+  ["hypercomputecluster"]="@googleapis//google/cloud/hypercomputecluster/v1:hypercomputecluster_cc_grpc"
   ["iam"]="@googleapis//google/iam/admin/v1:admin_cc_grpc"
   ["iam_v2"]="@googleapis//google/iam/v2:iam_cc_grpc"
   ["iam_v3"]="@googleapis//google/iam/v3:iam_cc_grpc"

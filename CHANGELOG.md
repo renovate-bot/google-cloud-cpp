@@ -15,6 +15,7 @@ We are happy to announce the following GA libraries. Unless specifically noted,
 the APIs in these libraries are stable, and are ready for production use.
 
 - [Gemini Enterprise for Customer Experience API](google/cloud/ces/README.md)
+- [Cluster Director API](google/cloud/hypercomputecluster/README.md)
 - [Vector Search API](google/cloud/vectorsearch/README.md)
 - [Vision AI API](/google/cloud/visionai/README.md)
 - [Workload Manager](/google/cloud/workloadmanager/README.md)

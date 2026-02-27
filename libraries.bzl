@@ -174,6 +174,7 @@ GOOGLE_CLOUD_CPP_GA_LIBRARIES = [
     "gkehub",
     "gkemulticloud",
     "gkerecommender",
+    "hypercomputecluster",
     "iam",
     "iap",
     "ids",

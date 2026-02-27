@@ -74,6 +74,8 @@ function check_abi() {
   elif [[ "${shortlib}" == "storage_grpc" ]]; then
     # `storage_grpc` uses the same header location as `storage`
     public_headers="${prefix}/include/google/cloud/storage"
+  elif [[ "${shortlib}" =~ "hypercomputecluster" ]]; then
+    :
   elif [[ "${shortlib}" =~ "compute" ]]; then
     # Compute libs are also special as their headers are in subdirectories.
     local computelib="${library#google_cloud_cpp_compute_}"
