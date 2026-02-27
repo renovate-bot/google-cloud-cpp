@@ -51,6 +51,7 @@ GOOGLE_CLOUD_CPP_GA_LIBRARIES = [
     "billing",
     "binaryauthorization",
     "certificatemanager",
+    "ces",
     "channel",
     "chronicle",
     "cloudbuild",

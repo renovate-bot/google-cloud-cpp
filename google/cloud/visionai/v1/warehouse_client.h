@@ -2574,7 +2574,7 @@ class WarehouseClient {
   /// Creates a search configuration inside a corpus.
   ///
   /// Please follow the rules below to create a valid CreateSearchConfigRequest.
-  /// General Rules:
+  /// - General Rules -
   /// 1. Request.search_config_id must not be associated with an existing
   ///    SearchConfig.
   /// 2. Request must contain at least one non-empty search_criteria_property or
@@ -2622,7 +2622,7 @@ class WarehouseClient {
   /// Creates a search configuration inside a corpus.
   ///
   /// Please follow the rules below to create a valid CreateSearchConfigRequest.
-  /// General Rules:
+  /// - General Rules -
   /// 1. Request.search_config_id must not be associated with an existing
   ///    SearchConfig.
   /// 2. Request must contain at least one non-empty search_criteria_property or
@@ -2667,7 +2667,7 @@ class WarehouseClient {
   /// Updates a search configuration inside a corpus.
   ///
   /// Please follow the rules below to create a valid UpdateSearchConfigRequest.
-  /// General Rules:
+  /// - General Rules -
   /// 1. Request.search_configuration.name must already exist.
   /// 2. Request must contain at least one non-empty search_criteria_property or
   /// facet_property.
@@ -2712,7 +2712,7 @@ class WarehouseClient {
   /// Updates a search configuration inside a corpus.
   ///
   /// Please follow the rules below to create a valid UpdateSearchConfigRequest.
-  /// General Rules:
+  /// - General Rules -
   /// 1. Request.search_configuration.name must already exist.
   /// 2. Request must contain at least one non-empty search_criteria_property or
   /// facet_property.

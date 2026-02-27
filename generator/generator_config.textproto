@@ -666,6 +666,35 @@ service {
   retryable_status_codes: ["kUnavailable"]
 }
 
+# CES
+service {
+  service_proto_path: "google/cloud/ces/v1/agent_service.proto"
+  product_path: "google/cloud/ces/v1"
+  initial_copyright_year: "2026"
+  retryable_status_codes: ["kUnavailable"]
+}
+
+service {
+  service_proto_path: "google/cloud/ces/v1/widget_service.proto"
+  product_path: "google/cloud/ces/v1"
+  initial_copyright_year: "2026"
+  retryable_status_codes: ["kUnavailable"]
+}
+
+service {
+  service_proto_path: "google/cloud/ces/v1/tool_service.proto"
+  product_path: "google/cloud/ces/v1"
+  initial_copyright_year: "2026"
+  retryable_status_codes: ["kUnavailable"]
+}
+
+service {
+  service_proto_path: "google/cloud/ces/v1/session_service.proto"
+  product_path: "google/cloud/ces/v1"
+  initial_copyright_year: "2026"
+  retryable_status_codes: ["kUnavailable"]
+}
+
 # Chronicle
 service {
   service_proto_path: "google/cloud/chronicle/v1/entity.proto"

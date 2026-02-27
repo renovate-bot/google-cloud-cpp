@@ -93,6 +93,7 @@ declare -A -r LIBRARIES=(
       "@googleapis//google/cloud/certificatemanager/logging/v1:logging_cc_grpc" \
       "@googleapis//google/cloud/certificatemanager/v1:certificatemanager_cc_grpc"
   )"
+  ["ces"]="@googleapis//google/cloud/ces/v1:ces_cc_grpc"
   ["channel"]="@googleapis//google/cloud/channel/v1:channel_cc_grpc"
   ["chronicle"]="@googleapis//google/cloud/chronicle/v1:chronicle_cc_grpc"
   ["cloudbuild"]="$(

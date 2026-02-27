@@ -171,6 +171,10 @@
 ./include/google/cloud/certificatemanager/v1
 ./include/google/cloud/certificatemanager/v1/internal
 ./include/google/cloud/certificatemanager/v1/mocks
+./include/google/cloud/ces
+./include/google/cloud/ces/v1
+./include/google/cloud/ces/v1/internal
+./include/google/cloud/ces/v1/mocks
 ./include/google/cloud/channel
 ./include/google/cloud/channel/v1
 ./include/google/cloud/channel/v1/internal
@@ -1326,6 +1330,8 @@
 ./lib64/cmake/google_cloud_cpp_binaryauthorization_mocks
 ./lib64/cmake/google_cloud_cpp_certificatemanager
 ./lib64/cmake/google_cloud_cpp_certificatemanager_mocks
+./lib64/cmake/google_cloud_cpp_ces
+./lib64/cmake/google_cloud_cpp_ces_mocks
 ./lib64/cmake/google_cloud_cpp_channel
 ./lib64/cmake/google_cloud_cpp_channel_mocks
 ./lib64/cmake/google_cloud_cpp_chronicle
