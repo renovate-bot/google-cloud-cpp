@@ -186,6 +186,7 @@ set(GOOGLE_CLOUD_CPP_GA_LIBRARIES
     "tpu"
     "trace"
     "translate"
+    "vectorsearch"
     "video"
     "videointelligence"
     "vision"

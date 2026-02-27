@@ -1163,6 +1163,10 @@
 ./include/google/cloud/translate/v3
 ./include/google/cloud/translate/v3/internal
 ./include/google/cloud/translate/v3/mocks
+./include/google/cloud/vectorsearch
+./include/google/cloud/vectorsearch/v1
+./include/google/cloud/vectorsearch/v1/internal
+./include/google/cloud/vectorsearch/v1/mocks
 ./include/google/cloud/video
 ./include/google/cloud/video/livestream
 ./include/google/cloud/video/livestream/v1
@@ -1570,6 +1574,8 @@
 ./lib64/cmake/google_cloud_cpp_trace_mocks
 ./lib64/cmake/google_cloud_cpp_translate
 ./lib64/cmake/google_cloud_cpp_translate_mocks
+./lib64/cmake/google_cloud_cpp_vectorsearch
+./lib64/cmake/google_cloud_cpp_vectorsearch_mocks
 ./lib64/cmake/google_cloud_cpp_video
 ./lib64/cmake/google_cloud_cpp_video_mocks
 ./lib64/cmake/google_cloud_cpp_videointelligence

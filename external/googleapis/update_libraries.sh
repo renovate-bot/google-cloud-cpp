@@ -331,6 +331,7 @@ declare -A -r LIBRARIES=(
       "@googleapis//google/devtools/cloudtrace/v2:cloudtrace_cc_grpc"
   )"
   ["translate"]="@googleapis//google/cloud/translate/v3:translation_cc_grpc"
+  ["vectorsearch"]="@googleapis//google/cloud/vectorsearch/v1:vectorsearch_cc_grpc"
   ["video"]="$(
     printf ",%s" \
       "@googleapis//google/cloud/video/livestream/v1:livestream_cc_grpc" \

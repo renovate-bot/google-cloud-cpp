@@ -4022,6 +4022,28 @@ service {
   retryable_status_codes: ["kUnavailable"]
 }
 
+# Vector Search
+service {
+  service_proto_path: "google/cloud/vectorsearch/v1/data_object_service.proto"
+  product_path: "google/cloud/vectorsearch/v1"
+  initial_copyright_year: "2026"
+  retryable_status_codes: ["kUnavailable"]
+}
+
+service {
+  service_proto_path: "google/cloud/vectorsearch/v1/vectorsearch_service.proto"
+  product_path: "google/cloud/vectorsearch/v1"
+  initial_copyright_year: "2026"
+  retryable_status_codes: ["kUnavailable"]
+}
+
+service {
+  service_proto_path: "google/cloud/vectorsearch/v1/data_object_search_service.proto"
+  product_path: "google/cloud/vectorsearch/v1"
+  initial_copyright_year: "2026"
+  retryable_status_codes: ["kUnavailable"]
+}
+
 # Video
 service {
   service_proto_path: "google/cloud/video/livestream/v1/service.proto"
